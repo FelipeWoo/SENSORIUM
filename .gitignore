@@ -1,0 +1,126 @@
+# ===================
+# GLOBAL
+# ===================
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+*.swp
+*.swo
+*.tmp
+*.out
+*.old
+
+# ===================
+# PYTHON
+# ===================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.env
+.env.*
+.venv/
+venv/
+pip-log.txt
+coverage.*
+.pytest_cache/
+.tox/
+.mypy_cache/
+.cache/
+.idea/
+
+# ===================
+# GO
+# ===================
+/bin/
+/build/
+/dist/
+*.test
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.a
+*.o
+*.out
+*.log
+*.coverprofile
+*.mod
+*.sum
+
+# Go modules
+/go.sum
+/go.mod
+
+# Goland
+*.iml
+.idea/
+
+# ===================
+# DOCKER / COMPOSE
+# ===================
+*.tar
+*.pid
+*.sock
+**/docker-compose.override.yml
+**/docker-compose.local.yml
+**/docker-compose.test.yml
+
+# Docker volumes / mounts
+volumes/
+data/
+tmp/
+mnt/
+
+# ===================
+# MQTT / MOSQUITTO
+# ===================
+mosquitto/data/
+mosquitto/log/
+mosquitto/config/passwords.txt
+mosquitto/config/mosquitto.conf.backup
+certs/
+*.crt
+*.key
+*.pem
+*.csr
+
+# ===================
+# POSTGRESQL
+# ===================
+*.sql
+*.dump
+*.db
+pgdata/
+postgres-data/
+*.conf
+postgresql.conf
+pg_hba.conf
+
+# ===================
+# GRAFANA
+# ===================
+grafana/data/
+grafana/logs/
+grafana/plugins/
+grafana/provisioning/dashboards/*.json
+grafana/provisioning/datasources/*.yml
+grafana.ini
+
+# ===================
+# SYSTEM / OS / EDITORS
+# ===================
+.vscode/
+*.code-workspace
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+*.nvimlog
+*.~undo~
+*.orig
