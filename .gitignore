@@ -124,3 +124,8 @@ grafana.ini
 *.nvimlog
 *.~undo~
 *.orig
+
+
+
+
+passwords.txt
