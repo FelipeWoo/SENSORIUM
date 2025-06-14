@@ -1,4 +1,4 @@
-from controller.com import CommInterface
+from controller.comm import CommInterface
 
 class SensorBase:
     def __init__(self, id, name, input_fn, transfer_fn, unit, comm: CommInterface):
@@ -14,8 +14,14 @@ class SensorBase:
         """Update the output based on, time(t) and input"""
         u = self.input_fn(t)
         y = self.transfer_fn(u)
-        self.comm.send(self.name,y)
+        self.comm.send(self.id,y)
     
+class FaultySensor(SensorBase):
+    def update(self, t):
+        if 20 < t < 40:  # Temp Failure
+            self.comm.send(self.id, None)
+        else:
+            super().update(t)
 
 class TemperatureSensor(SensorBase):
     pass
