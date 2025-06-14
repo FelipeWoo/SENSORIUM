@@ -11,9 +11,9 @@ def on_message(client, userdata, msg):
         data = json.loads(msg.payload.decode())
         
         insert_log(DB_CONN, data["sensor"], data["value"])
-        print(f"📝 Logged {data}")
+        print(f"Logged {data}")
     except Exception as e:
-        print("❌ Error al procesar mensaje MQTT:", e)
+        print("Error al procesar mensaje MQTT:", e)
 
 def main():
     client = create_client(on_message=on_message)
@@ -24,7 +24,7 @@ def main():
         
         client.loop_forever()
     except Exception as e:
-        print("❌ Error al conectar con MQTT:", e)
+        print("Error al conectar con MQTT:", e)
 
 if __name__ == "__main__":
     main()

@@ -19,5 +19,5 @@ while True:
     value = round(random.uniform(20, 30), 2)
     payload = f'{{"sensor": "temp1", "value": {value}}}'
     client.publish("sensor/temp1", payload)
-    print("📡 Published:", payload)
+    print("Published:", payload)
     time.sleep(2)

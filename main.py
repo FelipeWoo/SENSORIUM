@@ -69,7 +69,7 @@ def main():
             time.sleep(5)
             t+=1
     except KeyboardInterrupt:
-        print("\n🛑 Simulation stopped by user.")
+        print("\nSimulation stopped by user.")
 
 if __name__ == "__main__":
     main()

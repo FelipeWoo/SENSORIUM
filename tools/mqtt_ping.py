@@ -8,14 +8,14 @@ message_received = False
 
 def on_connect(client, userdata, flags, rc, properties=None):
     if rc == 0:
-        print("✅ Conectado a MQTT.")
+        print("Conectado a MQTT.")
         client.subscribe(ping_topic)
         client.publish(ping_topic, ping_payload)
 
 def on_message(client, userdata, msg):
     global message_received
     if msg.topic == ping_topic and msg.payload.decode() == ping_payload:
-        print("✅ Ping recibido correctamente.")
+        print("Ping recibido correctamente.")
         message_received = True
         client.disconnect()
 
@@ -30,4 +30,4 @@ for _ in range(10):
 
 client.loop_stop()
 if not message_received:
-    print("❌ No se recibió el ping de vuelta.")
+    print("No se recibió el ping de vuelta.")

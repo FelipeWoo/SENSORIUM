@@ -14,7 +14,7 @@ TOPIC = "sensorium/data/#"
 
 # Callback when the client connects to the broker
 def on_connect(client, userdata, flags, rc):
-    print(f"✅ Connected to MQTT broker with result code {rc}")
+    print(f"Connected to MQTT broker with result code {rc}")
     client.subscribe(TOPIC)
 
 # Callback when a message is received
@@ -29,9 +29,9 @@ def on_message(client, userdata, msg):
         unit = data.get("unit", "")
         timestamp = data.get("timestamp", "n/a")
 
-        print(f"📥 Topic: {topic} → {sensor_id}: {value} {unit} @ {timestamp}")
+        print(f"Topic: {topic} → {sensor_id}: {value} {unit} @ {timestamp}")
     except Exception as e:
-        print(f"⚠️ Error decoding message: {e}")
+        print(f"Error decoding message: {e}")
 
 
 def main():
@@ -45,11 +45,11 @@ def main():
 
     client.connect(MQTT_HOST, MQTT_PORT, keepalive=60)
 
-    print(f"🎧 Listening to topic: {TOPIC} (Press Ctrl+C to stop)")
+    print(f"Listening to topic: {TOPIC} (Press Ctrl+C to stop)")
     try:
         client.loop_forever()
     except KeyboardInterrupt:
-        print("\n🛑 Listener stopped by user.")
+        print("\nListener stopped by user.")
 
 if __name__ == "__main__":
     main()

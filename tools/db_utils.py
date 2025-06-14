@@ -17,7 +17,7 @@ def get_db_connection():
         )
         return conn
     except Exception as e:
-        print("❌ Error al conectar con PostgreSQL:", e)
+        print("Error al conectar con PostgreSQL:", e)
         return None
 
 def create_logs_table(conn):
@@ -32,9 +32,9 @@ def create_logs_table(conn):
                 )
             """)
         conn.commit()
-        print("✅ Tabla `logs` lista.")
+        print("Tabla `logs` lista.")
     except Exception as e:
-        print("❌ Error al crear tabla:", e)
+        print("Error al crear tabla:", e)
         conn.rollback()
 
 def insert_log(conn, sensor, value):
@@ -46,7 +46,7 @@ def insert_log(conn, sensor, value):
             )
         conn.commit()
     except Exception as e:
-        print(f"❌ Error al insertar log [{sensor}]:", e)
+        print(f"Error al insertar log [{sensor}]:", e)
         check_logs_columns(conn)
         conn.rollback()
 
@@ -56,6 +56,6 @@ def check_logs_columns(conn):
         cols = [row[0] for row in cur.fetchall()]
         expected = {'id', 'sensor', 'value', 'timestamp'}
         if not expected.issubset(set(cols)):
-            print(f"⚠️ Columnas inesperadas: {set(cols)}")
+            print(f"Columnas inesperadas: {set(cols)}")
         else:
-            print("✅ Columnas de `logs` correctas.")
+            print("Columnas de `logs` correctas.")

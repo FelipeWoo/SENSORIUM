@@ -7,10 +7,10 @@ try:
 
     with conn.cursor() as cursor:
         cursor.execute("SELECT 1;")
-        print("✅ PostgreSQL conectado correctamente.")
+        print("PostgreSQL conectado correctamente.")
 
 except Exception as e:
-    print("❌ Error al conectar con PostgreSQL:")
+    print("Error al conectar con PostgreSQL:")
     print(e)
 
 finally:
